@@ -12,6 +12,11 @@ This set of images represents more than 400 works of fine art from museum collec
 
 Although you are clustering ***images,*** you will be clustering on their metadata--not the characteristics of the images themselves. *NOTE: you may optionally include image characteristics, but this is not expected.* The metadata is contained in a [`csv` file in this repository](https://github.com/visualizedata/ml/blob/master/final_assignment_3/option_2/cluster_images.csv). Column descriptions and measurements are [also contained in this repository](https://github.com/visualizedata/ml/blob/master/final_assignment_3/option_2/contents-of-cluster_images.csv); a [PDF elaborates on the most important image attributes](https://github.com/visualizedata/ml/blob/master/final_assignment_3/option_2/ML%20bertin%20visual%20variables%20definitions.pdf). Thumbnails of the [images are also included](https://github.com/visualizedata/ml/blob/master/final_assignment_3/option_2/img_small). 
 
+For metadata, I chose to focus on art movement and medium. For medium I had a simple boolean condition to check if the item was a painting or not. I think in museums I most often see painting alongside other paintings. I think sculptures, photographs, and drawings all go together as "less" traditional art forms. 
+I realized quickly that I could not just add the metadata without converting it to a floating point in order for Kmeans to be able to analyze it. I wanted to add the art movement associated with the item, but I couldn't just use a string. I conditionally assigned each movement with it's own respective integer. I think after adding this, the number of clusters decreased significantly.
+I settled on 10 clusters for the fact that I did not want the collections to be too big. I wanted an "appropriate" about of images per cluster while still being visually similar.
+I am happy with the way the collections came out. I personally see a relationship between the items within each cluster. I think the line work and style has a lot to do with how they are clustered together. You can easily see when the cluster changes, which is an improvement to just determining if they are paintings or not.
+
 #### Starter code
 
 A [starter Jupyter notebook](https://github.com/visualizedata/ml/blob/master/final_assignment_3/option_2/cluster_starter.ipynb) is included to give you a jump start on:  
